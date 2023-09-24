@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Emmanuel Services</title>
+	<!-- Favicon-->
+	<link rel="icon" type="image/x-icon" href="../assets/VikaLogo.ico" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 form-container">
+                
+                <div class="col-lg-8 col-md-12 col-sm-9 col-xs-12 form-box text-center">
+                    <div class="logo mt-3">
+                        <img src="../assets/VikaLogo.ico" width="150px">
+                    </div>
+                    <h4 class="mt-2">Créer un compte</h4>
+					<form id="registration-form">
+						<div class="form-input">
+							<span><i class="fa fa-user"></i></span>
+							<input type="text" id="username" placeholder="Nom et prénom" required>
+						</div>
+		T				<div class="form-input">
+							<span><i class="fa fa-envelope"></i></span>
+							<input type="email" id="email" placeholder="Adresse e-mail" required>
+						</div>
+						<div class="form-input">
+							<span><i class="fa fa-lock"></i></span>
+							<input type="password" id="password" placeholder="Mot de passe" required>
+						</div>
+						<div class="row mb-3">
+							<div class="col-12 d-flex">
+								<div class="custom-control custom-checkbox">
+									<input type="checkbox" class="custom-control-input" id="cb1">
+									<label class="custom-control-label text-white" for="cb1">J'accepte tous les termes et conditions</label>
+								</div>
+							</div>
+						</div>
+					 
+						<!-- Ajoutez cet élément pour afficher le message contextuel -->
+						<div id="checkbox-message" style="color: #faf5f5; background-color: rgb(163, 36, 36)"
+						></div>
+						<div id="username-error" style="color: #faf5f5; background-color: rgb(163, 36, 36)"
+						></div>
+						<div id="email-error" style="color: #faf5f5; background-color: rgb(163, 36, 36)"
+						></div>
+						<div id="password-error" style="color: #faf5f5; background-color: rgb(163, 36, 36)"
+						></div>
+						<div id="checkbox-error" style="color: #faf8f7; background-color: rgb(159, 50, 50);"></div>
+
+					 <br>
+						<div class="text-left mb-8">
+							<button type="button" class="btn btn-twitter " onclick="validateForm()" style="font-weight: bold;   ">S'inscrire</button>
+
+						</div>
+						<span style="color: white;">ou s'inscrire avec</span>
+					
+					</form>
+					
+					<script>
+						function validateForm() {
+							var username = document.getElementById("username").value;
+							var email = document.getElementById("email").value;
+							var password = document.getElementById("password").value;
+							var checkbox = document.getElementById("cb1").checked;
+							var checkboxMessage = document.getElementById("checkbox-message");
+							document.getElementById("username-error").textContent = "";
+							document.getElementById("email-error").textContent = "";
+							document.getElementById("password-error").textContent = "";
+							document.getElementById("checkbox-error").textContent = "";
+													// Vérifiez si les champs sont vides
+							var isValid = true;
+
+								if (username === "") {
+									document.getElementById("username-error").textContent = "Veuillez saisir un nom d'utilisateur.";
+									isValid = false;
+								}
+
+								if (email === "") {
+									document.getElementById("email-error").textContent = "Veuillez saisir une adresse e-mail.";
+									isValid = false;
+								}
+
+								if (password === "") {
+									document.getElementById("password-error").textContent = "Veuillez saisir un mot de passe.";
+									isValid = false;
+								}
+
+								if (!checkbox) {
+									document.getElementById("checkbox-error").textContent = "Veuillez accepter les termes et conditions.";
+									isValid = false;
+								}
+
+								// Si tout est valide, redirigez
+								if (isValid) {
+									window.location.href = "../public/index.html";
+								}
+							}
+						 
+						</script>
+						
+						<br>
+					
+						 <div class="row mb-3">
+							<div class="col-6">
+							  <a href="index.html" class="btn btn-block btn-social btn-facebook">
+								<i class="fa fa-facebook"></i>
+							  </a>
+							</div>
+							<div class="col-6">
+							  <a href="index.html" class="btn btn-block btn-social btn-google">
+								<i class="fa fa-google"></i>
+							  </a>
+							</div>
+							<!-- <div class="col-4">
+							  <a href="" class="btn btn-block btn-social btn-twitter">
+								<i class="fa fa-twitter"></i>
+							  </a>
+							</div> -->
+						  </div>
+						<div class="text-white">Vous avez déjà un compte?
+							<a href="login.html" class="login-link" style="
+							margin-left: 20px;
+							margin-right: 20px;
+							color: #fff;
+							transition: color 0.3s;
+						  ">Se connecter ici</a>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="col-lg-6 col-md-6 d-none d-md-block image-container"></div>
+		</div>
+	</div>
+</body>
+</html>
